@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Music.PhotoAlbumDetail>
+@{
+    ViewBag.Title = "AlbumDetail";
+    Layout = "~/Views/Shared/Outer_LayoutPage_Visit_Menu.cshtml";
+}
+
+<link href="~/css/lightcase.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="~/css/font-awesome.min.css" />
+<link href="//fonts.googleapis.com/css?family=Varela+Round&subset=hebrew" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+<script>
+    $(document).ready(function () {
+
+
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liPhotos").addClass("active");
+
+    });
+</script>
+<style>
+    .font {
+        font-size: 13px;
+        color: lightgray;
+    }
+</style>
+<script type="text/javascript">
+    jQuery(window).load(function () {
+        //jQuery("#status").fadeOut();
+        jQuery("#preloader").delay(1800).fadeOut("slow");
+    })
+</script>
+
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+<div class="mail">
+    <div class="container">
+        <h2 class="agileinfo_header">Photos</h2>
+    </div>
+</div>
+
+    <div class="container banner-bottom" style="margin-top:0px;padding-top:0px;">
+        @*<div class="agileits_heading_section">
+                <h2 class="agileinfo_header">Portfolio</h2>
+                <p class="agileits_dummy_para">Fusce elementum sem ut ex condimentum facilisis.</p>
+            </div>*@
+        <div class="w3ls_portfolio_grids">
+            @foreach(var item in Model)
+            {
+                <div class="col-md-3 agileinfo_portfolio_grid">
+                    <div class="w3_agile_portfolio_grid1">
+                        <a href="~/Uploaded/@item.Photo" class="showcase" data-rel="lightcase:myCollection:slideshow" title="Photo Album">
+                            <div class="agileits_portfolio_sub_grid agileits_w3layouts_team_grid">
+                                <div class="w3layouts_port_head">
+                                    <h3>Album @item.PhotoAlbum.Title</h3>
+                                </div>
+                                <img src="~/Uploaded/@item.Photo" alt=" " class="img-responsive" />
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            }
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+<script src="~/js/lightcase.js"></script>
+<script src="~/js/jquery.events.touch.js"></script>
+<script>
+    $('.showcase').lightcase();
+</script>
+<script type="text/javascript" src="~/js/move-top.js"></script>
+<script type="text/javascript" src="~/js/easing.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*
+			var defaults = {
+			containerID: 'toTop', // fading element id
+			containerHoverID: 'toTopHover', // fading element hover id
+			scrollSpeed: 1200,
+			easingType: 'linear'
+			};
+		*/
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+
+
+

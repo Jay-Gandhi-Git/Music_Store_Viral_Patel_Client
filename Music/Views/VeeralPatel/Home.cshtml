@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/Outer_LayoutPage1.cshtml";
+}
+<script>
+    $(document).ready(function () {
+
+
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liHome").addClass("active");
+
+    });
+</script>
+<script type="text/javascript">
+    jQuery(window).load(function () {
+        //jQuery("#status").fadeOut();
+        jQuery("#preloader").delay(1800).fadeOut("slow");
+    })
+</script>
+
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+<h2>Home</h2>
+

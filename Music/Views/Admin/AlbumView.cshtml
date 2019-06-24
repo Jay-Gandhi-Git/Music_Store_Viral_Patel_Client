@@ -1,0 +1,81 @@
+﻿@model Music.PhotoAlbum
+@{
+    ViewBag.Title = "AlbumView";
+    Layout = "~/Views/Shared/Admin_Layout_Page.cshtml";
+    ViewBag.PageTitle = "Album View";
+}
+<link href="~/css/lightcase.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="~/css/font-awesome.min.css" />
+<link href="//fonts.googleapis.com/css?family=Varela+Round&subset=hebrew" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+<script>
+    $(document).ready(function () {
+
+
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liAlbumInfo").addClass("active");
+
+    });
+</script>
+@if (ViewBag.error != null)
+{
+    <div class="container" align="center">
+        <span style="color:#FF3720">@ViewBag.error</span>
+    </div>
+}
+<div class="mail">
+    <div class="container">
+        <div class="col-md-5 agileits_mail_grid_left">
+                <form method="post" enctype="multipart/form-data">
+                    <h4>Title*</h4>
+                    <input type="text" name="title" value="@Html.DisplayFor(model=>model.Title)" style="border-radius:4px;" required="" />
+                    <h4>Upload Cover Photo*</h4>
+                    <input type="file" style="border-radius:4px;" name="url" required="" />
+                    <div class="row">
+                        <div>
+                            <div class="col-md-3">
+                                <input type="submit" style="width:100%;" value="Edit" />
+                            </div>
+                            <div class="col-md-2">
+                                <a href="@Url.Action("AlbumInfo","Admin")" class="btn btn-default" style="margin-top:15px;">Back</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+</div>
+
+<script src="~/js/lightcase.js"></script>
+<script src="~/js/jquery.events.touch.js"></script>
+<script>
+    $('.showcase').lightcase();
+</script>
+<script type="text/javascript" src="~/js/move-top.js"></script>
+<script type="text/javascript" src="~/js/easing.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*
+			var defaults = {
+			containerID: 'toTop', // fading element id
+			containerHoverID: 'toTopHover', // fading element hover id
+			scrollSpeed: 1200,
+			easingType: 'linear'
+			};
+		*/
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>

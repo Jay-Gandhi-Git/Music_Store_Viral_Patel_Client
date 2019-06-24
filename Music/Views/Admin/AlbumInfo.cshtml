@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Music.PhotoAlbum>
+@{
+    ViewBag.Title = "AlbumInfo";
+    Layout = "~/Views/Shared/Admin_Layout_Page.cshtml";
+    ViewBag.PageTitle = "Album Information";
+}
+<link href="~/css/lightcase.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="~/css/font-awesome.min.css" />
+<link href="//fonts.googleapis.com/css?family=Varela+Round&subset=hebrew" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+<script>
+    $(document).ready(function () {
+
+
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liAlbumInfo").addClass("active");
+
+    });
+</script>
+<div class="mail">
+    <div class="container">
+        <h2 class="agileinfo_header">Alubum Info</h2>
+    </div>
+</div>
+
+<div class="container">
+    <div style="margin-bottom:10px;"><a href="@Url.Action("AlbumCreate","Admin")" class="btn btn-success">Create New Album</a></div>
+
+        @foreach (var item in Model)
+        {
+
+            <div class="col-md-3">
+            <div>
+                <img src="~/Uploaded/@item.CoverPhoto" alt="" class="img-responsive" />
+            </div>
+            <div style="margin-top:0px;">
+                <table class="table">
+                    <tr><td>Title: @item.Title</td></tr>
+                    <tr>
+                        <td>
+                            @Html.ActionLink("Detail", "AlbumDetail", new { id = item.PhotoAlbum_Id }) | @Html.ActionLink("Change Cover Photo", "AlbumView", new { id = item.PhotoAlbum_Id }) | @Html.ActionLink("Delete", "AlbumDelete", new { id = item.PhotoAlbum_Id })
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    }
+
+</div>
+
+<script src="~/js/lightcase.js"></script>
+<script src="~/js/jquery.events.touch.js"></script>
+<script>
+    $('.showcase').lightcase();
+</script>
+<script type="text/javascript" src="~/js/move-top.js"></script>
+<script type="text/javascript" src="~/js/easing.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*
+			var defaults = {
+			containerID: 'toTop', // fading element id
+			containerHoverID: 'toTopHover', // fading element hover id
+			scrollSpeed: 1200,
+			easingType: 'linear'
+			};
+		*/
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>

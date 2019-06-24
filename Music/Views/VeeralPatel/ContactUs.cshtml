@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/Outer_LayoutPage_Visit_Menu.cshtml";
+}
+@model Music.MainProfile
+<div class="mail">
+    <div class="container">
+        <h2 class="agileinfo_header">Contact</h2>
+        <p class="agileits_dummy_para">If You Want write something here...dummy text</p>
+        @if (ViewBag.msg != null)
+        {
+            <div class="container" align="center">
+                <span style="color:lightgreen;margin-top:15px;">@ViewBag.msg</span>
+            </div>
+        }
+        @if (ViewBag.error != null)
+        {
+            <div class="container" align="center">
+                <span style="color:#FF3720">@ViewBag.error</span>
+            </div>
+        }
+        <div class="agileits_mail_grids">
+            <div class="col-md-7 agileits_mail_grid_left">
+                <form  method="post">
+                    <h4>Your Name*</h4>
+                    <input type="text" name="Name" placeholder="Name..." required="">
+                    <h4>Your Email*</h4>
+                    <input type="email" name="Email" placeholder="Email..." required="">
+                    <h4>Your Phone Number*</h4>
+                    <input type="text" name="Phone" placeholder="Phone..." required="">
+                    <h4>Your Message*</h4>
+                    <textarea placeholder="Message..." name="Message"></textarea>
+                    <input type="submit" value="Send message" style="padding:5px;width:150px;">
+                </form>
+            </div>
+            <div class="col-md-5 agileits_mail_grid_right">
+                <div class="left-agileits">
+                    <h3>Address</h3>
+                    <ul>
+                        <li><span class="glyphicon glyphicon-home" aria-hidden="true"></span> @Html.DisplayFor(model=>model.Address)</li>
+                        <li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>@*<a href="#">*@@Html.DisplayFor(model=>model.Email)@*</a>*@</li>
+                        <li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> +91 @Html.DisplayFor(model=>model.ContactNumber)</li>
+                    </ul>
+                </div>
+                <div class="agile-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d238287.14824087842!2d72.99771525887846!3d21.0632067388386!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0f7aa28f2b071%3A0x7e38374cb09c0142!2sCentral+Bazzar%2C+Navsari!5e0!3m2!1sen!2sin!4v1516769280082" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

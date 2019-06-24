@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Music_DBModelStoreContainer" CdmEntityContainer="Music_DBEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="Music_DBModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Admin_Id" ColumnName="Admin_Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Audios">
+      <EntityTypeMapping TypeName="Music_DBModel.Audio">
+        <MappingFragment StoreEntitySet="Audio">
+          <ScalarProperty Name="MusicLabel" ColumnName="MusicLabel" />
+          <ScalarProperty Name="MusicProducer" ColumnName="MusicProducer" />
+          <ScalarProperty Name="LyricsWriter" ColumnName="LyricsWriter" />
+          <ScalarProperty Name="ComposerName" ColumnName="ComposerName" />
+          <ScalarProperty Name="SingerName" ColumnName="SingerName" />
+          <ScalarProperty Name="Audio_Id" ColumnName="Audio_Id" />
+          <ScalarProperty Name="AudioType_Id" ColumnName="AudioType_Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="AudioUrl" ColumnName="AudioUrl" />
+          <ScalarProperty Name="Admin_Id" ColumnName="Admin_Id" />
+          <ScalarProperty Name="Created_On" ColumnName="Created_On" />
+          <ScalarProperty Name="Modified_On" ColumnName="Modified_On" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AudioTypes">
+      <EntityTypeMapping TypeName="Music_DBModel.AudioType">
+        <MappingFragment StoreEntitySet="AudioType">
+          <ScalarProperty Name="AudioType_Id" ColumnName="AudioType_Id" />
+          <ScalarProperty Name="AudioType1" ColumnName="AudioType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotoAlbums">
+      <EntityTypeMapping TypeName="Music_DBModel.PhotoAlbum">
+        <MappingFragment StoreEntitySet="PhotoAlbum">
+          <ScalarProperty Name="PhotoAlbum_Id" ColumnName="PhotoAlbum_Id" />
+          <ScalarProperty Name="CoverPhoto" ColumnName="CoverPhoto" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Created_On" ColumnName="Created_On" />
+          <ScalarProperty Name="Modified_On" ColumnName="Modified_On" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Videos">
+      <EntityTypeMapping TypeName="Music_DBModel.Video">
+        <MappingFragment StoreEntitySet="Video">
+          <ScalarProperty Name="MusicLabel" ColumnName="MusicLabel" />
+          <ScalarProperty Name="MusicProducer" ColumnName="MusicProducer" />
+          <ScalarProperty Name="LyricsWriter" ColumnName="LyricsWriter" />
+          <ScalarProperty Name="ComposerName" ColumnName="ComposerName" />
+          <ScalarProperty Name="SingerName" ColumnName="SingerName" />
+          <ScalarProperty Name="VideoUrl" ColumnName="VideoUrl" />
+          <ScalarProperty Name="Video_Id" ColumnName="Video_Id" />
+          <ScalarProperty Name="VideoType_Id" ColumnName="VideoType_Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Admin_Id" ColumnName="Admin_Id" />
+          <ScalarProperty Name="Created_On" ColumnName="Created_On" />
+          <ScalarProperty Name="Modified_On" ColumnName="Modified_On" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VideoTypes">
+      <EntityTypeMapping TypeName="Music_DBModel.VideoType">
+        <MappingFragment StoreEntitySet="VideoType">
+          <ScalarProperty Name="VideoType_Id" ColumnName="VideoType_Id" />
+          <ScalarProperty Name="VideoType1" ColumnName="VideoType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MainProfiles">
+      <EntityTypeMapping TypeName="Music_DBModel.MainProfile">
+        <MappingFragment StoreEntitySet="MainProfile">
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="About_1" ColumnName="About_1" />
+          <ScalarProperty Name="Google_Link" ColumnName="Google+Link" />
+          <ScalarProperty Name="TwiterLink" ColumnName="TwiterLink" />
+          <ScalarProperty Name="YouTubeLink" ColumnName="YouTubeLink" />
+          <ScalarProperty Name="FacebookLink" ColumnName="FacebookLink" />
+          <ScalarProperty Name="CoverProfilePhoto" ColumnName="CoverProfilePhoto" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Profile_Id" ColumnName="Profile_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotoAlbumDetails">
+      <EntityTypeMapping TypeName="Music_DBModel.PhotoAlbumDetail">
+        <MappingFragment StoreEntitySet="PhotoAlbumDetail">
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="PhotoAlbum_Id" ColumnName="PhotoAlbum_Id" />
+          <ScalarProperty Name="PhotoAlbumDetail_Id" ColumnName="PhotoAlbumDetail_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "SongView";
+    Layout = "~/Views/Shared/Admin_Layout_Page.cshtml";
+    ViewBag.PageTitle = "Song Edit";
+}
+@model Music.Audio
+<script>
+    $(document).ready(function () {
+
+
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liSongInfo").addClass("active");
+
+    });
+</script>
+@if (ViewBag.error != null)
+{
+    <div class="container" align="center">
+        <span style="color:#FF3720">@ViewBag.error</span>
+    </div>
+}
+<div class="mail">
+    <div class="container">
+        <div class="col-md-12 agileits_mail_grid_left">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4>Select Audio Type*</h4>
+                            <select name="AudioType_Id" style="border-radius:4px;" required="">
+                                @{
+                                    var adtypelist = ViewBag.AudioType as List<Music.AudioType>;
+                                }
+                                @foreach (var item in adtypelist)
+                                {
+                                    <option value="@item.AudioType_Id">@item.AudioType1</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Title*</h4>
+                            <input type="text" name="title" value="@Html.DisplayFor(model=>model.Title)" style="border-radius:4px;" required="" />
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Enter Singer Name*</h4>
+                            <input type="text" name="SingerName" value="@Html.DisplayFor(model=>model.SingerName)" style="border-radius:4px;" required="" />
+                        </div>
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4>Enter Composer Name*</h4>
+                            <input type="text" name="ComposerName" value="@Html.DisplayFor(model=>model.ComposerName)" style="border-radius:4px;" required="" />
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Enter Lyrics Writer Name*</h4>
+                            <input type="text" name="LyricsWriter" value="@Html.DisplayFor(model=>model.LyricsWriter)" style="border-radius:4px;" required="" />
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Enter Music Produser Name*</h4>
+                            <input type="text" name="MusicProduser" value="@Html.DisplayFor(model=>model.MusicProducer)" style="border-radius:4px;" required="" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4>Enter Music Label*</h4>
+                            <input type="text" name="MusicLabel" value="@Html.DisplayFor(model=>model.MusicLabel)" style="border-radius:4px;" required="" />
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Upload Your Song*</h4>
+                            <input type="file" style="border-radius:4px;" name="url" required="" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <div class="col-md-3">
+                                <input type="submit" style="width:100%;" value="Edit" />
+                            </div>
+                            <div class="col-md-2">
+                                <a href="@Url.Action("SongInfo","Admin")" class="btn btn-default" style="margin-top:15px;">Back</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

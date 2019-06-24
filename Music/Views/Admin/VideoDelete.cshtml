@@ -1,0 +1,44 @@
+﻿@model Music.Video    
+@{
+    ViewBag.Title = "VideoDelete";
+    Layout = "~/Views/Shared/Admin_Layout_Page.cshtml";
+    ViewBag.PageTitle = "Video Delete";
+    
+}
+
+<script>
+    $(document).ready(function () {
+
+
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liVideoInfo").addClass("active");
+
+    });
+</script>
+<div class="mail">
+    <div class="container">
+        <div class="col-md-6 agileits_mail_grid_left">
+                <form method="post" enctype="multipart/form-data">
+                    <h4>Video Type*</h4>
+                    <input type="text" name="title" value="@ViewBag.VideoTypeName" style="border-radius:4px;" disabled />
+                    <h4>Title*</h4>
+                    <input type="text" name="title" value="@Html.DisplayFor(model=>model.Title)" style="border-radius:4px;" disabled />
+                    <h4>Edit Video Url*</h4>
+                    <input type="text" value="@Html.DisplayFor(model=>model.VideoUrl)" style="border-radius:4px;" name="url" disabled />
+                    <div class="row">
+                        <div>
+                            <div class="col-md-3">
+                                <input type="submit" style="width:100%;" value="Delete" />
+                            </div>
+                            <div class="col-md-2">
+                                <a href="@Url.Action("VideoInfo","Admin")" class="btn btn-default" style="margin-top:15px;">Back</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Music.Audio>
+@{
+    ViewBag.Title = "Songs";
+    Layout = "~/Views/Shared/Outer_LayoutPage_Visit_Menu.cshtml";
+}
+<script src="~/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liSongs").addClass("active");
+
+
+        //$("#dropDown").hide();
+
+        $(".ddrp").click(function () {
+            $(this).parent().children(".dropDown").slideToggle("fast");
+
+        });
+    });
+</script>
+<style>
+    .font {
+        font-size: 13px;
+        color: lightgray;
+    }
+</style>
+<script type="text/javascript">
+    jQuery(window).load(function () {
+        //jQuery("#status").fadeOut();
+        jQuery("#preloader").delay(1800).fadeOut("slow");
+    })
+</script>
+
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+<div class="mail">
+    <div class="container">
+        <h2 class="agileinfo_header">Songs</h2>
+    </div>
+</div>
+
+<div class="container banner-bottom" style="margin-top:0px;padding-top:0px;">
+    <div class="w3ls_portfolio_grids col-md-12">
+        @foreach (var item in Model)
+        {
+            <div class="w3_agile_portfolio_grid1 col-lg-2 col-md-3 font" style="box-shadow:0px 0px 3px lightgray;padding:8px;margin-left:20px;">
+                <div align="center">
+                    <img src="~/images/music_player_sysmbol.png" title="@item.Title" style="width:50px;height:50px;" />
+                </div>
+                <div style="margin-top:10px;">
+                    <div>
+                        <div>Title : <span style="padding-left:2px;"> @item.Title</span></div>
+                    </div>
+                    <div>
+                        <div>Singer Name : <span style="padding-left:2px;">@item.SingerName</span></div>
+                    </div>
+                </div>
+                <div align="left" style="float:left;margin-top:20px;">
+                    <a href="~/Uploaded/@item.AudioUrl" target="_blank"><img src="~/images/download.png" title="Download Song" /></a>
+                </div>
+                <div style="margin-top:20px;">
+                    <img src="~/images/more-details.png" style="margin-left:8px;width:29px;" class="ddrp" title="More Information" />
+                    <div class="dropDown" style="display:none;">
+                        <div>Composer Name: @item.ComposerName</div>
+                        <div>Lyrics Writer: @item.LyricsWriter</div>
+                        <div>Music Producer: @item.MusicProducer</div>
+                        <div>Music Label: @item.MusicLabel</div>
+                    </div>
+                </div>
+            </div>
+
+        }
+        <div class="clearfix"> </div>
+    </div>
+</div>

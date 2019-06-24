@@ -1,0 +1,62 @@
+﻿@model Music.Admin
+@{
+    ViewBag.Title = "AdminDelete";
+    Layout = "~/Views/Shared/Admin_Layout_Page.cshtml";
+    ViewBag.PageTitle = "Admin Delete";
+}
+<script>
+    $(document).ready(function () {
+
+
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liAdmin").addClass("active");
+
+    });
+</script>
+@if (ViewBag.error != null)
+{
+    <div class="container" align="center">
+        <span style="color:#FF3720">@ViewBag.error</span>
+    </div>
+}
+<div class="mail">
+    <div class="container">
+        <div class="col-md-10 agileits_mail_grid_left">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h4>Name*</h4>
+                            <input type="text" name="name" value="@Html.DisplayFor(model=>model.Name)" style="border-radius:4px;" required="" disabled />
+                        </div>
+                        <div class="col-md-5">
+                            <h4>User Name*</h4>
+                            <input type="text" name="name" value="@Html.DisplayFor(model=>model.UserName)" style="border-radius:4px;" disabled />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h4>Password*</h4>
+                            <input type="text" name="password" value="@Html.DisplayFor(model=>model.Password)" style="border-radius:4px;" required="" disabled/>
+                        </div>
+                        <div class="col-md-5">
+                            <h4>Mobile Number*</h4>
+                            <input type="text" name="mobilenumber" value="@Html.DisplayFor(model=>model.MobileNumber)" style="border-radius:4px;" required="" disabled/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <div class="col-md-3">
+                                <input type="submit" value="Delete" style="width:100%;" />
+                            </div>
+                            <div class="col-md-2">
+                                <a href="@Url.Action("AdminInfo","Admin")" class="btn btn-default" style="margin-top:15px;">Back</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+</div>

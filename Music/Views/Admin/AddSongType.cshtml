@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Music.AudioType>
+@{
+    ViewBag.Title = "AddSongType";
+    Layout = "~/Views/Shared/Admin_Layout_Page.cshtml";
+    ViewBag.PageTitle = "Add Song Type";
+}
+<script>
+    $(document).ready(function () {
+
+
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liSongInfo").addClass("active");
+
+    });
+</script>
+@if (ViewBag.error != null)
+{
+    <div class="container" align="center">
+        <span style="color:#FF3720">@ViewBag.error</span>
+    </div>
+}
+
+<div class="mail">
+    <div class="container">
+        <div class="col-md-4 agileits_mail_grid_left">
+            <form method="post" enctype="multipart/form-data">
+                <h4>Enter AudioType*</h4>
+                <input type="text" name="type" style="border-radius:4px;" required="" />
+                <div class="row">
+                    <div>
+                        <div class="col-md-3">
+                            <input type="submit" style="border-radius:4px;width:80px;" value="Add">
+                        </div>
+                        <div class="col-md-2">
+                            <a href="@Url.Action("SongCreate","Admin")" class="btn btn-default" style="margin-top:15px;">Back</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+        <div class="table-responsive col-md-5">
+            <table class="table table-hover">
+                <tr>
+                    <th>AudioType</th>
+                    <th>Action</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(model => item.AudioType1)</td>
+                        <td>@Html.ActionLink("Edit", "EditSongType", new { id = item.AudioType_Id }) | @Html.ActionLink("Delete", "DeleteSongType", new { id = item.AudioType_Id }) </td>
+                    </tr>
+                }
+
+
+            </table>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

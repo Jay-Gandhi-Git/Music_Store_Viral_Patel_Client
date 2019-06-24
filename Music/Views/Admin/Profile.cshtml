@@ -1,0 +1,85 @@
+﻿@model Music.MainProfile
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/Admin_Layout_Page.cshtml";
+    ViewBag.PageTitle = "PROFILE";
+}
+<script>
+    $(document).ready(function () {
+
+
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liAdminProfile").addClass("active");
+
+    });
+</script>
+@*<div class="mail">
+    <div class="container">
+        <h2 class="agileinfo_header">Profile</h2>
+    </div>
+</div>*@
+<div class="mail">
+    <div class="container">
+            <form method="post" enctype="multipart/form-data">
+                <div class="col-md-12 agileits_mail_grid_left">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4>Name*</h4>
+                            <input type="text" style="border-radius:4px;" value="@Html.DisplayFor(model => model.Name)" name="name" required="" />
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Email*</h4>
+                            <input type="text" style="border-radius:4px;" value="@Html.DisplayFor(model => model.Email)" name="email" required="" />
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Contact Number*</h4>
+                            <input type="text" style="border-radius:4px;" value="@Html.DisplayFor(model => model.ContactNumber)" name="contactnumber" required="" />
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4>Address*</h4>
+                            <input type="text" style="border-radius:4px;" value="@Html.DisplayFor(model => model.Address)" name="address" required="" />
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Upload Cover Profile Photo*</h4>
+                            <input type="text" style="border-radius:4px;" value="@Html.DisplayFor(model => model.CoverProfilePhoto)" name="CoverProfilePhoto" required="" />
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Facebook Link*</h4>
+                            <input type="text" style="border-radius:4px;"  value="@Html.DisplayFor(model => model.FacebookLink)" name="FacebookLink" required="" />
+                        </div>
+                        
+
+                       
+                    </div>
+                       <div class="row">
+                           <div class="col-md-4">
+                               <h4>YouTube Link*</h4>
+                               <input type="text" style="border-radius:4px;" value="@Html.DisplayFor(model => model.YouTubeLink)" name="YouTubeLink" required="" />
+                           </div>
+                           <div class="col-md-4">
+                               <h4>Google+ Link*</h4>
+                               <input type="text" style="border-radius:4px;" value="@Html.DisplayFor(model => model.Google_Link)" name="Google_Link" required="" />
+                           </div>
+                           <div class="col-md-4">
+                               <h4>Twiter Link*</h4>
+                               <input type="text" style="border-radius:4px;" value="@Html.DisplayFor(model => model.TwiterLink)" name="TwiterLink" required="" />
+                           </div>
+                       </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4>About*</h4>
+                            <textarea style="border-radius:4px;" name="About_1" required="">@Html.DisplayFor(model => model.About_1)</textarea>
+                        </div>
+                    </div>
+                    
+                    <input type="submit" style="border-radius:5px;width:70px;height:40px;padding:0.5px;" value="Update" />
+                </div>
+                
+            </form>
+    </div>
+    <div class="clearfix"></div>
+</div>
+

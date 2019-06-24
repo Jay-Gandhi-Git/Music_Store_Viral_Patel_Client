@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "AddPhotos";
+    Layout = "~/Views/Shared/Admin_Layout_Page.cshtml";
+    ViewBag.PageTitle = "Add Photo";
+}
+
+<script>
+    $(document).ready(function () {
+
+
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liAlbumInfo").addClass("active");
+
+    });
+</script>
+@if (ViewBag.error != null)
+{
+    <div class="container" align="center">
+        <span style="color:#FF3720">@ViewBag.error</span>
+    </div>
+}
+<div class="mail">
+    <div class="container">
+        <div class="col-md-5 agileits_mail_grid_left">
+            <form method="post" enctype="multipart/form-data">
+                <h4>Upload Photo*</h4>
+                <input type="file" style="border-radius:4px;" name="url" required="" />
+                <div class="row">
+                    <div>
+                        <div class="col-md-3">
+                            <input type="submit" style="width:100%;" value="Upload">
+                        </div>
+                        <div class="col-md-2">
+                            <a href="@Url.Action("AlbumDetail","Admin")" class="btn btn-default" style="margin-top:15px;">Back</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

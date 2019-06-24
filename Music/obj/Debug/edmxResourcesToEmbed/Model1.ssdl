@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Music_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Admin_Id" />
+    </Key>
+    <Property Name="Admin_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="MobileNumber" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Audio">
+    <Key>
+      <PropertyRef Name="Audio_Id" />
+    </Key>
+    <Property Name="Audio_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AudioType_Id" Type="int" />
+    <Property Name="Admin_Id" Type="int" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="AudioUrl" Type="nvarchar(max)" />
+    <Property Name="SingerName" Type="nvarchar(max)" />
+    <Property Name="ComposerName" Type="nvarchar(max)" />
+    <Property Name="LyricsWriter" Type="nvarchar(max)" />
+    <Property Name="MusicProducer" Type="nvarchar(max)" />
+    <Property Name="MusicLabel" Type="nvarchar(max)" />
+    <Property Name="Created_On" Type="datetime" />
+    <Property Name="Modified_On" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AudioType">
+    <Key>
+      <PropertyRef Name="AudioType_Id" />
+    </Key>
+    <Property Name="AudioType_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AudioType" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="MainProfile">
+    <Key>
+      <PropertyRef Name="Profile_Id" />
+    </Key>
+    <Property Name="Profile_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="ContactNumber" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="CoverProfilePhoto" Type="nvarchar(max)" />
+    <Property Name="FacebookLink" Type="nvarchar(max)" />
+    <Property Name="YouTubeLink" Type="nvarchar(max)" />
+    <Property Name="TwiterLink" Type="nvarchar(max)" />
+    <Property Name="Google+Link" Type="nvarchar(max)" />
+    <Property Name="About_1" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PhotoAlbum">
+    <Key>
+      <PropertyRef Name="PhotoAlbum_Id" />
+    </Key>
+    <Property Name="PhotoAlbum_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CoverPhoto" Type="nvarchar(max)" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Created_On" Type="datetime" />
+    <Property Name="Modified_On" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PhotoAlbumDetail">
+    <Key>
+      <PropertyRef Name="PhotoAlbumDetail_Id" />
+    </Key>
+    <Property Name="PhotoAlbumDetail_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PhotoAlbum_Id" Type="int" />
+    <Property Name="Photo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="Video_Id" />
+    </Key>
+    <Property Name="Video_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VideoType_Id" Type="int" />
+    <Property Name="Admin_Id" Type="int" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="VideoUrl" Type="nvarchar(max)" />
+    <Property Name="SingerName" Type="nvarchar(max)" />
+    <Property Name="ComposerName" Type="nvarchar(max)" />
+    <Property Name="LyricsWriter" Type="nvarchar(max)" />
+    <Property Name="MusicProducer" Type="nvarchar(max)" />
+    <Property Name="MusicLabel" Type="nvarchar(max)" />
+    <Property Name="Created_On" Type="datetime" />
+    <Property Name="Modified_On" Type="datetime" />
+  </EntityType>
+  <EntityType Name="VideoType">
+    <Key>
+      <PropertyRef Name="VideoType_Id" />
+    </Key>
+    <Property Name="VideoType_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VideoType" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_Audio_ToTable">
+    <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+    <End Role="Audio" Type="Self.Audio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="Admin_Id" />
+      </Principal>
+      <Dependent Role="Audio">
+        <PropertyRef Name="Admin_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Audio_ToTable_1">
+    <End Role="AudioType" Type="Self.AudioType" Multiplicity="0..1" />
+    <End Role="Audio" Type="Self.Audio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AudioType">
+        <PropertyRef Name="AudioType_Id" />
+      </Principal>
+      <Dependent Role="Audio">
+        <PropertyRef Name="AudioType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_ToTable">
+    <End Role="PhotoAlbum" Type="Self.PhotoAlbum" Multiplicity="0..1" />
+    <End Role="PhotoAlbumDetail" Type="Self.PhotoAlbumDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhotoAlbum">
+        <PropertyRef Name="PhotoAlbum_Id" />
+      </Principal>
+      <Dependent Role="PhotoAlbumDetail">
+        <PropertyRef Name="PhotoAlbum_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Video_ToTable">
+    <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+    <End Role="Video" Type="Self.Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="Admin_Id" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="Admin_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Video_ToTable_1">
+    <End Role="VideoType" Type="Self.VideoType" Multiplicity="0..1" />
+    <End Role="Video" Type="Self.Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VideoType">
+        <PropertyRef Name="VideoType_Id" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="VideoType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Music_DBModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Audio" EntityType="Self.Audio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AudioType" EntityType="Self.AudioType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MainProfile" EntityType="Self.MainProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhotoAlbum" EntityType="Self.PhotoAlbum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhotoAlbumDetail" EntityType="Self.PhotoAlbumDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VideoType" EntityType="Self.VideoType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Audio_ToTable" Association="Self.FK_Audio_ToTable">
+      <End Role="Admin" EntitySet="Admin" />
+      <End Role="Audio" EntitySet="Audio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Audio_ToTable_1" Association="Self.FK_Audio_ToTable_1">
+      <End Role="AudioType" EntitySet="AudioType" />
+      <End Role="Audio" EntitySet="Audio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_ToTable" Association="Self.FK_Table_ToTable">
+      <End Role="PhotoAlbum" EntitySet="PhotoAlbum" />
+      <End Role="PhotoAlbumDetail" EntitySet="PhotoAlbumDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Video_ToTable" Association="Self.FK_Video_ToTable">
+      <End Role="Admin" EntitySet="Admin" />
+      <End Role="Video" EntitySet="Video" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Video_ToTable_1" Association="Self.FK_Video_ToTable_1">
+      <End Role="VideoType" EntitySet="VideoType" />
+      <End Role="Video" EntitySet="Video" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

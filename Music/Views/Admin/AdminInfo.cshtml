@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Music.Admin>
+@{
+    ViewBag.Title = "AdminInfo";
+    Layout = "~/Views/Shared/Admin_Layout_Page.cshtml";
+    ViewBag.PageTitle = "Admin Information";
+}
+@*<div class="mail">
+    <div class="container">
+        <h2 class="agileinfo_header">Admin Information</h2>
+    </div>
+</div>*@
+<script>
+    $(document).ready(function () {
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liAdmin").addClass("active");
+
+    });
+</script>
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <tr>
+                <th>Name</th>
+                <th>UserName</th>
+                <th>Password</th>
+                <th>Mobile Number</th>
+                <th>Action</th>
+            </tr>
+           @foreach (var item in Model)
+           {
+            <tr>
+                <td>@Html.DisplayFor(model => item.Name)</td>
+                <td>@Html.DisplayFor(model => item.UserName).ToString()</td>
+                <td>@Html.DisplayFor(model => item.Password).ToString()</td>
+                <td>@Html.DisplayFor(model => item.MobileNumber).ToString()</td>
+                <td>@Html.ActionLink("Edit", "AdminView", new { id = item.Admin_Id }) | @Html.ActionLink("Delete", "AdminDelete", new { id = item.Admin_Id }) </td>
+            </tr>
+           }
+            
+        </table>
+    </div>
+</div>

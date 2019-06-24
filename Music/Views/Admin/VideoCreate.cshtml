@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "VideoCreate";
+    Layout = "~/Views/Shared/Admin_Layout_Page.cshtml";
+    ViewBag.PageTitle = "Video Create";
+}
+
+<script>
+    $(document).ready(function () {
+
+
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liVideoInfo").addClass("active");
+
+    });
+</script>
+@if (ViewBag.error != null)
+{
+    <div class="container" align="center">
+        <span style="color:#FF3720">@ViewBag.error</span>
+    </div>
+}
+<div class="mail">
+    <div class="container">
+        <div class="col-md-12 agileits_mail_grid_left">
+            <form method="post" enctype="multipart/form-data">
+                <a href="@Url.Action("AddVideoType","Admin")">Add Video Type</a>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Select Video Type*</h4>
+                        <select name="VideoType_Id" style="border-radius:4px;" required="">
+                            @{
+                                var vdtypelist = ViewBag.VideoType as List<Music.VideoType>;
+                            }
+                            @foreach (var item in vdtypelist)
+                            {
+                                <option value="@item.VideoType_Id">@item.VideoType1</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Enter Title*</h4>
+                        <input type="text" name="title" style="border-radius:4px;" required="" />
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Singer Name*</h4>
+                        <input type="text" style="border-radius:4px;" name="SingerName" required="" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Enter Composer Name*</h4>
+                        <input type="text" name="ComposerName" style="border-radius:4px;" required="" />
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Enter Lyrics Writer Name*</h4>
+                        <input type="text" name="LyricsWriter" style="border-radius:4px;" required="" />
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Enter Music Produser Name*</h4>
+                        <input type="text" name="MusicProduser" style="border-radius:4px;" required="" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Enter Music Label*</h4>
+                        <input type="text" name="MusicLabel" style="border-radius:4px;" required="" />
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Upload Video Url*</h4>
+                        <input type="text"  style="border-radius:4px;" name="url" required="" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <div class="col-md-3">
+                            <input type="submit" style="width:100%;" value="Upload">
+                        </div>
+                        <div class="col-md-2">
+                            <a href="@Url.Action("VideoInfo","Admin")" class="btn btn-default" style="margin-top:15px;">Back</a>
+                        </div>
+                    </div>
+
+                </div>
+                
+            </form>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "SongInfo";
+    Layout = "~/Views/Shared/Admin_Layout_Page.cshtml";
+    ViewBag.PageTitle = "Song Information";
+}
+@model IEnumerable<Music.Audio>
+<script>
+    $(document).ready(function () {
+
+
+        $("#menu1").children().removeClass("active");
+        $("#menu1").children("#liSongInfo").addClass("active");
+
+    });
+</script>
+<div class="container">
+    <a  href="@Url.Action("SongCreate", "Admin")" class="btn btn-success" style="margin-top:10px;margin-bottom:5px;">Create New Song</a> 
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <tr>
+                <th>Title</th>
+                <th>Create On</th>
+                <th>Modified On</th>
+                <th>Action</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => item.Title)</td>
+                    <td>@Html.DisplayFor(model => item.Created_On).ToString()</td>
+                    <td>@Html.DisplayFor(model => item.Modified_On).ToString()</td>
+                    <td>@Html.ActionLink("Edit", "SongView", new { id = item.Audio_Id }) | @Html.ActionLink("Delete", "SongDelete", new { id = item.Audio_Id }) </td>
+                </tr>
+            }
+
+
+        </table>
+    </div>
+</div>
